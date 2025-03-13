@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="mt-3 ">Books List</h1>
+
+    <div class="mt-2">
+        <div class="mt-3">
+            <table class="table table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>synopsis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (bookDetails of books; track $index) {
+                    <tr>
+                        <td>{{bookDetails.title}}</td>
+                        <td>{{bookDetails.synopsis}}</td>
+                        <button class="btn btn-primary">Details</button>
+                        <div>
+                            <app-book [book]="bookDetails"/>
+                         </div>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<form #locationForm="ngForm">
+    <!-- Country Dropdown -->
+    <label for="country">Country:</label>
+    <select id="country" name="country" [(ngModel)]="selectedCountry" (change)="onCountryChange($event)">
+      <option value="">Select Country</option>
+      <option *ngFor="let country of countries" [value]="country.iso2">
+        {{ country.name }}
+      </option>
+    </select>
+  
+    <!-- State Dropdown -->
+    <label for="state">State:</label>
+    <select id="state" name="state" [(ngModel)]="selectedState" (change)="onStateChange($event)" [disabled]="states.length === 0">
+      <option value="">Select State</option>
+      <option *ngFor="let state of states" [value]="state.code">
+        {{ state.name }}
+      </option>
+    </select>
+  
+    <!-- City Dropdown -->
+    <label for="city">City:</label>
+    <select id="city" name="city" [(ngModel)]="selectedCity" [disabled]="cities.length === 0">
+      <option value="">Select City</option>
+      <option *ngFor="let city of cities" [value]="city">
+        {{ city }}
+      </option>
+    </select>
+  </form>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form [formGroup]="form">
+    <label for="country">Country:</label>
+    <select id="country" formControlName="country" (change)="onCountryChange()">
+      <option value="">Select Country</option>
+      <option *ngFor="let country of countries" [value]="country.code">
+        {{ country.name }}
+      </option>
+    </select>
+  
+    <label for="state">State:</label>
+    <select id="state" formControlName="state" (change)="onStateChange()" [disabled]="states.length === 0">
+      <option value="">Select State</option>
+      <option *ngFor="let state of states" [value]="state.code">
+        {{ state.name }}
+      </option>
+    </select>
+  
+    <label for="city">City:</label>
+    <select id="city" formControlName="city" [disabled]="cities.length === 0">
+      <option value="">Select City</option>
+      <option *ngFor="let city of cities" [value]="city">
+        {{ city }}
+      </option>
+    </select>
+  </form>
+   -->
