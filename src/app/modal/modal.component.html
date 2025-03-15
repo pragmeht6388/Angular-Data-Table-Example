@@ -1,1 +1,14 @@
-<p>modal works!</p>
+<app-backdrop *ngIf="isVisible" (click)="closeModal()"></app-backdrop>
+<div class="modal-content" *ngIf="isVisible">
+  <h1>Modal Title</h1>
+  <p>This is a modal with a backdrop.</p>
+  <button (click)="closeModal()">Close</button>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+  <p class="p">Hello Pragnesh.</p>
+</div>

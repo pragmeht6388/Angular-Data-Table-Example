@@ -4,10 +4,7 @@ import { ModalComponent } from './modal/modal.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: `
-    <button (click)="modal.openModal()">Open Modal</button>
-    <app-modal #modal></app-modal>
-  `,
+  templateUrl: './app.component.html',
   imports: [ModalComponent],
 })
 export class AppComponent {}
