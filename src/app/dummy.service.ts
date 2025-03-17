@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class DummyService {
 
-    users: any[] = [
+    users: any = [
       { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
       { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' },
       { id: 3, name: 'Robert Brown', email: 'robert.brown@example.com' }
@@ -16,6 +16,9 @@ export class DummyService {
   private arrayLengthSubject = new BehaviorSubject<number>(this.users.length); 
   constructor() { }
 
+  loadUser(){
+    return this.users
+  }
   addItem(item: any) {
     this.users.push(item);
     this.updateArrayLength();

@@ -22,17 +22,19 @@ export class AppComponent implements OnInit {
   title = 'dummy';
   flag:boolean=false
   ct:number=0;
-  users: User[] = [
-    { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' },
-    { id: 3, name: 'Robert Brown', email: 'robert.brown@example.com' },
-    { id: 4, name: 'Alice Johnson', email: 'alice.johnson@example.com' },
-    { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' },
-    { id: 3, name: 'Robert Brown', email: 'robert.brown@example.com' },
-    { id: 4, name: 'Alice Johnson', email: 'alice.johnson@example.com' },
+  users: any =[];
+  
+  // [
+  //   { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
+  //   { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' },
+  //   { id: 3, name: 'Robert Brown', email: 'robert.brown@example.com' },
+  //   { id: 4, name: 'Alice Johnson', email: 'alice.johnson@example.com' },
+  //   { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
+  //   { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com' },
+  //   { id: 3, name: 'Robert Brown', email: 'robert.brown@example.com' },
+  //   { id: 4, name: 'Alice Johnson', email: 'alice.johnson@example.com' },
 
-  ];
+  // ];
 
   constructor(private arrayService:DummyService)
   {
@@ -40,8 +42,10 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     // Subscribe to the array length observable
+    this.users= this.arrayService.loadUser();
     this.arrayService.getArrayLength$().subscribe(length => {
       this.ct = length;
+      console.log(this.ct)
     });
   }
    abc = {
@@ -53,8 +57,11 @@ export class AppComponent implements OnInit {
     this.arrayService.addItem(this.abc)
   }
 
-  // Function to delete a user from the table
-  deleteUser(id: number) {
-    this.users = this.users.filter(user => user.id !== id);
+  isDisabled():boolean{
+    return this.ct>7
   }
+  // Function to delete a user from the table
+  // deleteUser(id: number) {
+  //   this.users = this.users.filter(user => user.id !== id);
+  // }
 }

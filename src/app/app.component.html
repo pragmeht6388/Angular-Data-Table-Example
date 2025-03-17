@@ -10,7 +10,7 @@
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <button (click)="deleteUser(user.id)" class="delete-button"><i class="fa fa-trash"></i></button>
+          <button  class="delete-button"><i class="fa fa-trash"></i></button>
         </td>
         
       </tr>
@@ -19,8 +19,9 @@
 </div>
 <div class="dummy" style="text-align: center; margin-top: 20px;">
   <span>* Maximum 8 Cars are allowed</span>
-  <button style="margin-left: 10px;" [disabled]="flag">Add</button>
+  <button style="margin-left: 10px;" [disabled]="ct>7? true : false" [ngClass]="{ 'disabled-btn': isDisabled(), 'enabled-btn': !isDisabled() }" (click)="add()">Add</button>
 </div>
+
 <!-- 
 <footer class="footer">
  <p> <span> maximum 8 cars can be added</span> <button>Add</button></p>
