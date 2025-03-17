@@ -1,0 +1,27 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="table-container">
+  <table class="user-table"  style="border: 2px solid ;">
+
+    <tbody>
+      <tr *ngFor="let user of users;let i = index" >
+        <td >{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button (click)="deleteUser(user.id)" class="delete-button"><i class="fa fa-trash"></i></button>
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="dummy" style="text-align: center; margin-top: 20px;">
+  <span>* Maximum 8 Cars are allowed</span>
+  <button style="margin-left: 10px;" [disabled]="flag">Add</button>
+</div>
+<!-- 
+<footer class="footer">
+ <p> <span> maximum 8 cars can be added</span> <button>Add</button></p>
+</footer> -->
