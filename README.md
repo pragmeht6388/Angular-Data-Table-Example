@@ -12,3 +12,5 @@
   constructor() {
     this.yesterday.setDate(this.yesterday.getDate() - 0);
   }
+
+  const tomorrow =  new Date(today.setDate(today.getDate() + 1));
