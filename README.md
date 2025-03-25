@@ -1,16 +1,30 @@
-# Angular-Data-Table-Example
+import { Component } from '@angular/core';
 
-<mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Choose a date" [min]="yesterday">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+@Component({
+  selector: 'app-date-comparison',
+  templateUrl: './date-comparison.component.html',
+  styleUrls: ['./date-comparison.component.css']
+})
+export class DateComparisonComponent {
 
-  @Input() min: any;
-  yesterday = new Date();
+  today: Date;
+  tomorrow: Date;
+  comparisonResult: string;
 
   constructor() {
-    this.yesterday.setDate(this.yesterday.getDate() - 0);
+    this.today = new Date(); // Get today's date
+    this.tomorrow = new Date();
+    this.tomorrow.setDate(this.today.getDate() + 1); // Set tomorrow's date by adding 1 day to today
+
+    this.compareDates();
   }
 
-  const tomorrow =  new Date(today.setDate(today.getDate() + 1));
+  compareDates() {
+    // Compare the two dates
+    if (this.today.getDate() === this.tomorrow.getDate()) {
+      this.comparisonResult = 'Today and tomorrow are the same date.';
+    } else {
+      this.comparisonResult = `Today is ${this.today.toDateString()} and tomorrow is ${this.tomorrow.toDateString()}.`;
+    }
+  }
+}
