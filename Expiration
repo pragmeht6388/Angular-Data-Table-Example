@@ -18,3 +18,13 @@ export class AppComponent {
   }
 }
 Expiration 
+
+
+//html code
+<div>
+  <h2>Current Date: {{ currentDate | date }}</h2>
+  <h2>Expired Date: {{ expiredDate | date }}</h2>
+  <div *ngIf="isExpired">
+    <p>This content will disappear after the expiration date</p>
+  </div>
+</div>
