@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NodeManagerComponent } from "./node-manager/node-manager.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [ NodeManagerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

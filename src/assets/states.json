@@ -1,0 +1,63 @@
+{
+    "makes": [
+      {
+        "makeId": 1,
+        "makeName": "Toyota",
+        "country": "Japan"
+      },
+      {
+        "makeId": 2,
+        "makeName": "Ford",
+        "country": "USA"
+      },
+      {
+        "makeId": 3,
+        "makeName": "BMW",
+        "country": "Germany"
+      }
+    ],
+    "models": {
+      "1": [
+        {
+          "modelId": 101,
+          "modelName": "Corolla"
+        },
+        {
+          "modelId": 102,
+          "modelName": "Camry"
+        },
+        {
+          "modelId": 103,
+          "modelName": "RAV4"
+        }
+      ],
+      "2": [
+        {
+          "modelId": 201,
+          "modelName": "F-150"
+        },
+        {
+          "modelId": 202,
+          "modelName": "Mustang"
+        },
+        {
+          "modelId": 203,
+          "modelName": "Explorer"
+        }
+      ],
+      "3": [
+        {
+          "modelId": 301,
+          "modelName": "3 Series"
+        },
+        {
+          "modelId": 302,
+          "modelName": "5 Series"
+        },
+        {
+          "modelId": 303,
+          "modelName": "X5"
+        }
+      ]
+    }
+  }

@@ -1,0 +1,30 @@
+<div>
+    <h2>Car Selection</h2>
+    
+    <div *ngIf="makes.length > 0">
+      <label for="makes">Select a Make:</label>
+      <select id="makes" (change)="onSelectMake($event)">
+        <option value="0">-- Select Make --</option>
+        <option *ngFor="let make of makes" [value]="make.makeId">
+          {{ make.makeName }} ({{ make.country }})
+        </option>
+      </select>
+    </div>
+  
+    <div *ngIf="selectedMakeId > 0 && models.length > 0">
+      <label for="models">Select a Model:</label>
+      <select id="models" (change)="onSelectModel($event)">
+        <option value="0">-- Select Model --</option>
+        <option *ngFor="let model of models" [value]="model.modelId">
+          {{ model.modelName }}
+        </option>
+      </select>
+    </div>
+  
+    <div *ngIf="makes.length === 0">
+      Loading makes...
+    </div>
+  
+    <button (click)="show()" *ngIf="!flag">Show More</button>
+    <button (click)="back()" *ngIf="flag">Back</button>
+  </div>
