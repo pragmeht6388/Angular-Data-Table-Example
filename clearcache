@@ -1,1 +1,74 @@
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Hosting;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+public class CacheClearanceService : BackgroundService
+{
+    private readonly IMemoryCache _memoryCache;
+    private DateTime _lastCheckedDate;
+
+    public CacheClearanceService(IMemoryCache memoryCache)
+    {
+        _memoryCache = memoryCache;
+        _lastCheckedDate = DateTime.Today; // Start with the current date
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            var currentDate = DateTime.Today;
+
+            // Check if the date has changed
+            if (_lastCheckedDate != currentDate)
+            {
+                _lastCheckedDate = currentDate;
+
+                // Clear the cache here
+                _memoryCache.Remove("your_cache_key");  // Specify your cache key or clear all if needed
+
+                Console.WriteLine("Cache cleared due to day change.");
+            }
+
+            // Wait for some time before checking again, e.g., check every hour
+            await Task.Delay(TimeSpan.FromHours(1), stoppingToken);
+        }
+    }
+}
+
+
+
+
+
+
+
+using Microsoft.Extensions.DependencyInjection;
+
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Register the memory cache service
+        services.AddMemoryCache();
+
+        // Register the background service for cache clearing
+        services.AddHostedService<CacheClearanceService>();
+
+        // Your other service registrations
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        // Your app's middleware configuration
+    }
+}
+
+
+
+
+
+
+_memoryCache.Compact(1.0);  // Removes all items from the cache
 
