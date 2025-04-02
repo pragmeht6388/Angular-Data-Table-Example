@@ -1,0 +1,6 @@
+@Distributed_Cahing_POC_HostAddress = http://localhost:5232
+
+GET {{Distributed_Cahing_POC_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
