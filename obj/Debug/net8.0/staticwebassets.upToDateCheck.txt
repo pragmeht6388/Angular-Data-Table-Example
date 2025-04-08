@@ -1,0 +1,4 @@
+wwwroot\uploads\images\image1.jpg
+wwwroot\uploads\images\image2.jpg
+wwwroot\uploads\pdfs\sample.pdf
+wwwroot\uploads\pdfs\SmaplePdf2.pdf

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\image1.jpg"
+    },
+    {
+      "Id": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\image2.jpg"
+    },
+    {
+      "Id": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\SmaplePdf2.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pdfs\\SmaplePdf2.pdf"
+    },
+    {
+      "Id": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\sample.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pdfs\\sample.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PDF_CRUD.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PDF_CRUD.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PDF_CRUD.props",
+      "PackagePath": "build\\PDF_CRUD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PDF_CRUD.props",
+      "PackagePath": "buildMultiTargeting\\PDF_CRUD.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PDF_CRUD.props",
+      "PackagePath": "buildTransitive\\PDF_CRUD.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,434 @@
+{
+  "Version": 1,
+  "Hash": "31qA5NCm65jL/RlHNi5dVN/eSlKtPXn5Ojlo+qNrml0=",
+  "Source": "PDF_CRUD",
+  "BasePath": "_content/PDF_CRUD",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PDF_CRUD\\wwwroot",
+      "Source": "PDF_CRUD",
+      "ContentRoot": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\",
+      "BasePath": "_content/PDF_CRUD",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image1.jpg",
+      "SourceId": "PDF_CRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\",
+      "BasePath": "_content/PDF_CRUD",
+      "RelativePath": "uploads/images/image1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r827jyc3e6",
+      "Integrity": "5b3ELgBxMRCE1R0FjwKSlVFDmwyrk+X2KQYjUTDT/UA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\image1.jpg"
+    },
+    {
+      "Identity": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image2.jpg",
+      "SourceId": "PDF_CRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\",
+      "BasePath": "_content/PDF_CRUD",
+      "RelativePath": "uploads/images/image2#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q5qgvcw9zb",
+      "Integrity": "blenL8VvIUlxv35xg/hBu+MxbObaVDNsQaT0wwKDXbg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\image2.jpg"
+    },
+    {
+      "Identity": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\sample.pdf",
+      "SourceId": "PDF_CRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\",
+      "BasePath": "_content/PDF_CRUD",
+      "RelativePath": "uploads/pdfs/sample#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "icuyzvvc66",
+      "Integrity": "Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\pdfs\\sample.pdf"
+    },
+    {
+      "Identity": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\SmaplePdf2.pdf",
+      "SourceId": "PDF_CRUD",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\",
+      "BasePath": "_content/PDF_CRUD",
+      "RelativePath": "uploads/pdfs/SmaplePdf2#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "icuyzvvc66",
+      "Integrity": "Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\pdfs\\SmaplePdf2.pdf"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/images/image1.jpg",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1523226"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5b3ELgBxMRCE1R0FjwKSlVFDmwyrk+X2KQYjUTDT/UA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:34:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5b3ELgBxMRCE1R0FjwKSlVFDmwyrk+X2KQYjUTDT/UA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/images/image1.r827jyc3e6.jpg",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1523226"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5b3ELgBxMRCE1R0FjwKSlVFDmwyrk+X2KQYjUTDT/UA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:34:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r827jyc3e6"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/images/image1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5b3ELgBxMRCE1R0FjwKSlVFDmwyrk+X2KQYjUTDT/UA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/images/image2.jpg",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "848698"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"blenL8VvIUlxv35xg/hBu+MxbObaVDNsQaT0wwKDXbg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:25:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-blenL8VvIUlxv35xg/hBu+MxbObaVDNsQaT0wwKDXbg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/images/image2.q5qgvcw9zb.jpg",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\images\\image2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "848698"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"blenL8VvIUlxv35xg/hBu+MxbObaVDNsQaT0wwKDXbg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:25:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q5qgvcw9zb"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/images/image2.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-blenL8VvIUlxv35xg/hBu+MxbObaVDNsQaT0wwKDXbg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/sample.icuyzvvc66.pdf",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\sample.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:23:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "icuyzvvc66"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pdfs/sample.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/sample.pdf",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\sample.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:23:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/SmaplePdf2.icuyzvvc66.pdf",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\SmaplePdf2.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:34:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "icuyzvvc66"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pdfs/SmaplePdf2.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pdfs/SmaplePdf2.pdf",
+      "AssetFile": "C:\\Swagata\\PDF_CRUD\\PDF_CRUD\\wwwroot\\uploads\\pdfs\\SmaplePdf2.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18810"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 06:34:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ip3vuwzubwJnOlzeKQ0Gc+daDcMc7EOYnIqypOyn4bs="
+        }
+      ]
+    }
+  ]
+}
