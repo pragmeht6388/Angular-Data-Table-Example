@@ -1,7 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Distributed_Cahing_POC
 {
     public class WeatherForecast
     {
+        [Key]
+        public int Id { get; set; }
         public DateOnly Date { get; set; }
 
         public int TemperatureC { get; set; }
