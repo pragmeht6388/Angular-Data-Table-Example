@@ -1,0 +1,59 @@
+using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
+[Route("api/images")]
+[ApiController]
+public class ImageController : ControllerBase
+{
+    private readonly IWebHostEnvironment _webHostEnvironment;
+
+    public ImageController(IWebHostEnvironment webHostEnvironment)
+    {
+        _webHostEnvironment = webHostEnvironment;
+    }
+
+    [HttpGet("{imageName}")]
+    public async Task<IActionResult> GetImage(string imageName)
+    {
+        // Set the path to your custom folder
+        var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", imageName);
+
+        // Check if the image exists
+        if (!System.IO.File.Exists(imagePath))
+        {
+            return NotFound("Image not found");
+        }
+
+        // Read the image from the file system
+        var imageBytes = await System.IO.File.ReadAllBytesAsync(imagePath);
+        
+        // Return the image as a response with the appropriate content type
+        return File(imageBytes, "image/jpeg");
+    }
+}
+
+
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Enable static file serving
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+app.UseStaticFiles(); // Enable static file serving for wwwroot folder
+
+app.MapGet("/", () => "Hello World!");
+
+app.MapControllers();
+
+app.Run();
+
+
+
+
+
