@@ -52,6 +52,41 @@ app.MapGet("/", () => "Hello World!");
 app.MapControllers();
 
 app.Run();
+---------------------use this code-----------------------
+
+[ApiController]
+[Route("api/[controller]")]
+public class ImageController : ControllerBase
+{
+    private readonly string _imageBasePath = @"C:\MyApp\Storage\Images";
+
+    [HttpGet("{fileName}")]
+    public IActionResult GetImage(string fileName)
+    {
+        var filePath = Path.Combine(_imageBasePath, fileName);
+
+        if (!System.IO.File.Exists(filePath))
+            return NotFound();
+
+        var imageBytes = System.IO.File.ReadAllBytes(filePath);
+        var contentType = GetContentType(filePath);
+
+        return File(imageBytes, contentType);
+    }
+
+    private string GetContentType(string path)
+    {
+        var ext = Path.GetExtension(path).ToLowerInvariant();
+        return ext switch
+        {
+            ".jpg" or ".jpeg" => "image/jpeg",
+            ".png" => "image/png",
+            ".gif" => "image/gif",
+            _ => "application/octet-stream"
+        };
+    }
+}
+
 
 
 
