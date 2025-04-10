@@ -88,6 +88,58 @@ public class ImageController : ControllerBase
 }
 
 
+000000-------------try this one------------\
+
+
+using System;
+using System.IO;
+using System.Web.Http;
+using System.Net.Http;
+using System.Net;
+
+namespace YourNamespace.Controllers
+{
+    public class ImageController : ApiController
+    {
+        [HttpGet]
+        [Route("api/image/{imageName}")]
+        public HttpResponseMessage GetImage(string imageName)
+        {
+            try
+            {
+                // Path to the image file, make sure the file exists
+                var imagePath = Path.Combine("path_to_your_images_folder", imageName);
+
+                if (!File.Exists(imagePath))
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Image not found.");
+                }
+
+                // Open the file stream for the image
+                using (FileStream fileStream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    // Read the file into a byte array
+                    byte[] imageBytes = new byte[fileStream.Length];
+                    fileStream.Read(imageBytes, 0, imageBytes.Length);
+
+                    // Create the response with the image content
+                    var response = Request.CreateResponse(HttpStatusCode.OK);
+                    response.Content = new ByteArrayContent(imageBytes);
+                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg"); // Or the correct MIME type for your image (e.g., image/png)
+                    
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+    }
+}
+
+
+
 
 
 
