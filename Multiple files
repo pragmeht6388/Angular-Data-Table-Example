@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 
 namespace YourNamespace.Controllers
 {
@@ -33,26 +32,28 @@ namespace YourNamespace.Controllers
             if (fileNames == null || fileNames.Count == 0)
                 return BadRequest("No file names provided.");
 
-            var zipStream = new MemoryStream();
+            var result = new List<object>();
 
-            using (var archive = new ZipArchive(zipStream, ZipArchiveMode.Create, true))
+            foreach (var fileName in fileNames)
             {
-                foreach (var fileName in fileNames)
+                var filePath = Path.Combine(_imageBasePath, fileName);
+
+                if (!System.IO.File.Exists(filePath))
+                    continue;
+
+                var bytes = System.IO.File.ReadAllBytes(filePath);
+                var base64String = System.Convert.ToBase64String(bytes);
+                var contentType = GetContentType(filePath);
+
+                result.Add(new
                 {
-                    var filePath = Path.Combine(_imageBasePath, fileName);
-
-                    if (!System.IO.File.Exists(filePath))
-                        continue;
-
-                    var entry = archive.CreateEntry(fileName, CompressionLevel.Fastest);
-                    using var entryStream = entry.Open();
-                    using var fileStream = System.IO.File.OpenRead(filePath);
-                    fileStream.CopyTo(entryStream);
-                }
+                    FileName = fileName,
+                    ContentType = contentType,
+                    Base64Data = base64String
+                });
             }
 
-            zipStream.Position = 0;
-            return File(zipStream, "application/zip", "images.zip");
+            return Ok(result);
         }
 
         private string GetContentType(string path)
