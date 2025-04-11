@@ -1,0 +1,72 @@
+program.cs
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Images", "CustomImages")),
+    RequestPath = "/custom-images"
+});
+
+    private readonly string _imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Images", "CustomImages");
+
+    [HttpGet]
+    public IActionResult GetImages()
+    {
+        var files = Directory.GetFiles(_imageFolder)
+            .Select(f => Path.GetFileName(f))
+            .ToList();
+        return Ok(files);
+    }
+
+    [HttpGet("{fileName}")]
+    public IActionResult GetImage(string fileName)
+    {
+        var filePath = Path.Combine(_imageFolder, fileName);
+        if (!System.IO.File.Exists(filePath))
+            return NotFound();
+
+        var contentType = "image/" + Path.GetExtension(filePath).TrimStart('.');
+        return PhysicalFile(filePath, contentType);
+    }
+
+// image.service.ts
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class ImageService {
+  private apiUrl = 'https://your-api-url.com/api/images'; // adjust accordingly
+
+  constructor(private http: HttpClient) {}
+
+  getImageList() {
+    return this.http.get<string[]>(this.apiUrl);
+  }
+}
+
+// image-gallery.component.ts
+import { Component, OnInit } from '@angular/core';
+import { ImageService } from './image.service';
+
+@Component({
+  selector: 'app-image-gallery',
+  template: `
+    <div *ngFor="let image of images">
+      <img [src]="getImageUrl(image)" width="200" />
+    </div>
+  `,
+})
+export class ImageGalleryComponent implements OnInit {
+  images: string[] = [];
+
+  constructor(private imageService: ImageService) {}
+
+  ngOnInit() {
+    this.imageService.getImageList().subscribe(data => {
+      this.images = data;
+    });
+  }
+
+  getImageUrl(fileName: string): string {
+    return `https://your-api-url.com/api/images/${fileName}`;
+  }
+}
