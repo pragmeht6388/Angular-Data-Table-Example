@@ -1,0 +1,123 @@
+import { Component, OnInit } from '@angular/core';
+import { environment } from '@env';
+import { image } from '@modules/dashboard/models';
+import { DashboardService } from '@modules/dashboard/services/dashboard.service';
+import { OAuthService } from 'angular-oauth2-oidc';
+@Component({
+  selector: 'app-image-slider',
+  templateUrl: './image-slider.component.html',
+  styleUrls: ['./image-slider.component.scss'],
+})
+export class ImageSliderComponent implements OnInit {
+  images: image[] = [];
+  visibleBanners: image[] = [];
+  retval:any;
+
+  constructor(private dashboardService: DashboardService, private authservice:OAuthService) {}
+current = 0;
+public slideIndex : number = 1;
+
+  ngOnInit(): void {
+    const today = new Date();
+    this.images = this.dashboardService.getImages();
+    this.visibleBanners = this.images;
+   // this.visibleBanners = this.images.filter(banner => today >= banner.startDate && today <= banner.endDate);
+    this.showSlides();
+    }
+  public plusSlides(from: string) {
+     this.retval = this.slideLoop();
+ 
+     if (from == "prev") {
+       if (this.retval.activeIndex == 0) {
+         this.displaySlide(0);
+       } else {
+         this.displaySlide(this.retval.activeIndex - 1);      
+       }
+     }
+ 
+     if (from == "next") {
+       if (this.retval.activeIndex == this.retval.max) {
+         this.displaySlide(this.retval.activeIndex);
+       } else {
+         this.displaySlide(this.retval.activeIndex + 1);
+       }
+     }
+   }
+ 
+ public displaySlide(index:any) {
+  let slides:any;
+   slides = document.getElementsByClassName("car-slides");
+   let dots = document.getElementsByClassName("select-color");
+   if(slides[index] !== undefined)
+   slides[index]['style'].display = "block";
+   if(dots[index] !== undefined)
+   dots[index].className += " active";
+ }
+ 
+ public currentSlide(n:any) {
+   this.slideLoop();
+   this.displaySlide(n)
+ }
+ 
+ public slideLoop(){
+   let i;
+     let activeIndex;
+     let slides:any;
+      slides = document.getElementsByClassName("car-slides");
+     let dots = document.getElementsByClassName("select-color");
+     let max = slides.length -1;
+     for (i = 0; i < slides.length; i++) {
+       if (slides[i]['style'].display == "block")
+         activeIndex = i;
+       slides[i]['style'].display = "none";
+     }
+     this.slideIndex++;
+     if (this.slideIndex > slides.length) { this.slideIndex = 1 }
+     for (i = 0; i < dots.length; i++) {
+       dots[i].className = dots[i].className.replace(" active", "");
+     }
+  return {activeIndex, max} ;
+ }
+ 
+ /**
+  * showSlides
+  */
+ public showSlides() {
+
+   setTimeout(() => {
+    this.slideLoop();
+    this.displaySlide(this.slideIndex - 1);
+     this.showSlides();
+   }, 8000);
+ }
+
+  LeaseCar(index:number) {
+    var token = this.authservice.getAccessToken();
+    const quoteInfo = this.images[index].quoteInfo;
+    window.open(environment.quoteBaseHomeUrl  +token+ quoteInfo, '_blank');
+  }
+
+
+downloadPdf(imageUrl:string){
+  const link = document.createElement('a');
+  link.href = imageUrl;
+  link.download = imageUrl.split('/').pop() || 'download.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+}
+<div  class="image-container" >
+  <div class="car-detail-image-container">
+    <div 
+      *ngFor="let jpgImage of visibleBanners; index as i;" class="car-slides car-slide-animation">
+      <img [src]="jpgImage.image" class="vech" style="width:100%" />
+      <button *ngIf="jpgImage.sendinfo" class="action-button btn-default" (click)="LeaseCar(i)">Lease now</button>
+      <button *ngIf="!jpgImage.sendinfo" class="action-button btn-default" (click)="downloadPdf(jpgImage.pdfUrl)">know more</button>
+    </div>
+    <a class="prev-click" (click)="plusSlides('prev')"><mat-icon class="icon">navigate_before</mat-icon></a>
+    <a class="next-click" (click)="plusSlides('next')"> <mat-icon class="icon">navigate_next</mat-icon> </a>
+    <mat-divider></mat-divider>
+  </div>
+</div>
