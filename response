@@ -1,26 +1,26 @@
-ar fileExtension = Path.GetExtension(file.ImageUrl).ToLower();
-        string contentType;
+private static byte[] CompressFile(string inputFileName, CompressionAlgorithmTag algorithm)
+{
+    // Define a safe base directory where files are allowed to be read from
+    var safeBasePath = Path.GetFullPath("AllowedDirectory");
 
-        switch (fileExtension)
-        {
-            case ".jpg":
-            case ".jpeg":
-                contentType = "image/jpeg";
-                break;
-            case ".png":
-                contentType = "image/png";
-                break;
-            case ".gif":
-                contentType = "image/gif";
-                break;
-            default:
-                contentType = "application/octet-stream";
-                break;
-        }
+    // Combine the safe base path with the file name
+    var safeFullPath = Path.GetFullPath(Path.Combine(safeBasePath, inputFileName));
 
-        // Return the image as a downloadable file
-        return ReturnValue<FileStreamResult>.Success(new FileStreamResult(fileStream, contentType)
-        {
-            FileDownloadName = fileName
-        });
+    // Ensure the file stays within the allowed directory (prevent path traversal)
+    if (!safeFullPath.StartsWith(safeBasePath, StringComparison.OrdinalIgnoreCase))
+    {
+        throw new UnauthorizedAccessException("Invalid file path access detected.");
     }
+
+    using var bout = new MemoryStream();
+    var comData = new PgpCompressedDataGenerator(algorithm);
+
+    // Use the safe file path
+    using (var fileStream = File.OpenRead(safeFullPath))
+    {
+        PgpUtilities.WriteFileToLiteralData(comData.Open(bout), PgpLiteralData.Binary, new FileInfo(safeFullPath));
+    }
+
+    comData.Close();
+    return bout.ToArray();
+}
